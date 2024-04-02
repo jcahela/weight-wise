@@ -5,12 +5,12 @@ SET client_encoding = 'UTF8';
 SET client_min_messages = warning;
 
 -- Drop Tables
-DROP TABLE IF EXISTS users;
-DROP TABLE IF EXISTS routines;
-DROP TABLE IF EXISTS routine_exercises;
-DROP TABLE IF EXISTS exercises;
-DROP TABLE IF EXISTS workouts;
-DROP TABLE IF EXISTS workout_sets;
+DROP TABLE IF EXISTS users CASCADE;
+DROP TABLE IF EXISTS routines CASCADE;
+DROP TABLE IF EXISTS routine_exercises CASCADE;
+DROP TABLE IF EXISTS exercises CASCADE;
+DROP TABLE IF EXISTS workouts CASCADE;
+DROP TABLE IF EXISTS workout_sets CASCADE;
 
 -- ENUMS
 DROP TYPE IF EXISTS Muscle;
@@ -123,7 +123,6 @@ CREATE TABLE "exercises" (
   "image_path_0" text,
   "image_path_1" text,
   "created_at" timestamp,
-  "updated_at" timestamp,
   "deleted_at" timestamp
 );
 

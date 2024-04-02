@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "back-reschema": "psql -U jcahela -d weightwise -f ~/projects/weightwise/weightwise-db.sql",
+    "back-seed-exercises": "psql -U jcahela -d weightwise -f ~/projects/weightwise/seed_exercises.sql"
   },
   "dependencies": {
     "react": "^18",
