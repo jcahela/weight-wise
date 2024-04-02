@@ -32,3 +32,14 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# .vscode specific settings
+.vscode/
+
+# ASP.NET settings, binary files, and object files
+back/bin/
+back/obj/
+back/appsettings.json
+back/appsettings.Development.json
+back/Properties
+back/back.http
