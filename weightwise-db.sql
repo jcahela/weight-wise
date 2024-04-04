@@ -83,7 +83,7 @@ CREATE TYPE Category AS ENUM (
 );
 
 CREATE TABLE "users" (
-  "uuid" uuid PRIMARY KEY,
+  "uuid" uuid PRIMARY KEY DEFAULT gen_random_uuid(),
   "username" varchar UNIQUE NOT NULL,
   "email" text UNIQUE NOT NULL,
   "created_at" timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -92,7 +92,7 @@ CREATE TABLE "users" (
 );
 
 CREATE TABLE "routines" (
-  "uuid" uuid PRIMARY KEY,
+  "uuid" uuid PRIMARY KEY DEFAULT gen_random_uuid(),
   "user_uuid" uuid NOT NULL,
   "name" text NOT NULL,
   "interval_in_days" integer NOT NULL,
@@ -102,7 +102,7 @@ CREATE TABLE "routines" (
 );
 
 CREATE TABLE "routine_exercises" (
-  "uuid" uuid PRIMARY KEY,
+  "uuid" uuid PRIMARY KEY DEFAULT gen_random_uuid(),
   "routine_uuid" uuid NOT NULL,
   "exercise_uuid" uuid NOT NULL,
   "exercise_order" integer NOT NULL,
@@ -111,7 +111,7 @@ CREATE TABLE "routine_exercises" (
 );
 
 CREATE TABLE "exercises" (
-  "uuid" uuid PRIMARY KEY,
+  "uuid" uuid PRIMARY KEY DEFAULT gen_random_uuid(),
   "name" varchar(100) UNIQUE NOT NULL,
   "force" Force,
   "level" Level NOT NULL,
@@ -128,7 +128,7 @@ CREATE TABLE "exercises" (
 );
 
 CREATE TABLE "workouts" (
-  "uuid" uuid PRIMARY KEY,
+  "uuid" uuid PRIMARY KEY DEFAULT gen_random_uuid(),
   "routine_uuid" uuid NOT NULL,
   "scheduled_at" timestamp NOT NULL,
   "created_at" timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -137,7 +137,7 @@ CREATE TABLE "workouts" (
 );
 
 CREATE TABLE "workout_sets" (
-  "uuid" uuid PRIMARY KEY,
+  "uuid" uuid PRIMARY KEY DEFAULT gen_random_uuid(),
   "workout_uuid" uuid NOT NULL,
   "exercise_uuid" uuid NOT NULL,
   "set_order" integer NOT NULL,
