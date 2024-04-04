@@ -111,18 +111,18 @@ CREATE TABLE "routine_exercises" (
 
 CREATE TABLE "exercises" (
   "uuid" uuid PRIMARY KEY,
-  "name" varchar(100) UNIQUE,
+  "name" varchar(100) UNIQUE NOT NULL,
   "force" Force,
-  "level" Level,
+  "level" Level NOT NULL,
   "mechanic" Mechanic,
   "equipment" Equipment,
-  "primary_muscles" Muscle[],
+  "primary_muscles" Muscle[] NOT NULL,
   "secondary_muscles" Muscle[],
   "instructions" text,
-  "category" Category,
+  "category" Category NOT NULL,
   "image_path_0" text,
   "image_path_1" text,
-  "created_at" timestamp,
+  "created_at" timestamp NOT NULL,
   "deleted_at" timestamp
 );
 
