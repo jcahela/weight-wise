@@ -48,18 +48,25 @@ public partial class WeightwiseContext : DbContext
             entity.Property(e => e.Uuid)
                 .ValueGeneratedNever()
                 .HasColumnName("uuid");
+            entity.Property(e => e.Instructions).HasColumnName("instructions");
+            entity.Property(e => e.Name)
+                .HasMaxLength(100)
+                .HasColumnName("name");
+            entity.Property(e => e.Force).HasColumnName("force");
+            entity.Property(e => e.Level).HasColumnName("level");
+            entity.Property(e => e.Mechanic).HasColumnName("mechanic");
+            entity.Property(e => e.Equipment).HasColumnName("equipment");
+            entity.Property(e => e.PrimaryMuscles).HasColumnName("primary_muscles");
+            entity.Property(e => e.SecondaryMuscles).HasColumnName("secondary_muscles");
+            entity.Property(e => e.Category).HasColumnName("category");
+            entity.Property(e => e.ImagePath0).HasColumnName("image_path_0");
+            entity.Property(e => e.ImagePath1).HasColumnName("image_path_1");
             entity.Property(e => e.CreatedAt)
                 .HasColumnType("timestamp without time zone")
                 .HasColumnName("created_at");
             entity.Property(e => e.DeletedAt)
                 .HasColumnType("timestamp without time zone")
                 .HasColumnName("deleted_at");
-            entity.Property(e => e.ImagePath0).HasColumnName("image_path_0");
-            entity.Property(e => e.ImagePath1).HasColumnName("image_path_1");
-            entity.Property(e => e.Instructions).HasColumnName("instructions");
-            entity.Property(e => e.Name)
-                .HasMaxLength(100)
-                .HasColumnName("name");
         });
 
         modelBuilder.Entity<Routine>(entity =>
@@ -106,10 +113,6 @@ public partial class WeightwiseContext : DbContext
             entity.Property(e => e.ExerciseOrder).HasColumnName("exercise_order");
             entity.Property(e => e.ExerciseUuid).HasColumnName("exercise_uuid");
             entity.Property(e => e.RoutineUuid).HasColumnName("routine_uuid");
-
-            entity.HasOne(d => d.ExerciseUu).WithMany(p => p.RoutineExercises)
-                .HasForeignKey(d => d.ExerciseUuid)
-                .HasConstraintName("routine_exercises_exercise_uuid_fkey");
 
             entity.HasOne(d => d.RoutineUu).WithMany(p => p.RoutineExercises)
                 .HasForeignKey(d => d.RoutineUuid)
@@ -191,10 +194,6 @@ public partial class WeightwiseContext : DbContext
                 .HasColumnName("updated_at");
             entity.Property(e => e.Weight).HasColumnName("weight");
             entity.Property(e => e.WorkoutUuid).HasColumnName("workout_uuid");
-
-            entity.HasOne(d => d.ExerciseUu).WithMany(p => p.WorkoutSets)
-                .HasForeignKey(d => d.ExerciseUuid)
-                .HasConstraintName("workout_sets_exercise_uuid_fkey");
 
             entity.HasOne(d => d.WorkoutUu).WithMany(p => p.WorkoutSets)
                 .HasForeignKey(d => d.WorkoutUuid)
