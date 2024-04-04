@@ -94,6 +94,7 @@ CREATE TABLE "users" (
 CREATE TABLE "routines" (
   "uuid" uuid PRIMARY KEY,
   "user_uuid" uuid NOT NULL,
+  "name" text NOT NULL,
   "interval_in_days" integer NOT NULL,
   "created_at" timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   "updated_at" timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,

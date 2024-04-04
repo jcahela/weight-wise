@@ -5,3 +5,12 @@ UPDATE exercises
 SET (image_path_0, image_path_1) = ('/images/' || REPLACE(REPLACE(e.name, '/', '_'), ' ', '_') || '_0.jpg', '/images/' || REPLACE(REPLACE(e.name, '/', '_'), ' ', '_') || '_1.jpg')
 FROM exercises AS e
 WHERE exercises.uuid = e.uuid;
+
+INSERT INTO users (uuid, username, email) VALUES
+('9EE9FFC5-D6D5-4467-AEC3-84F64CA5487D', 'jcahela', 'jpacahela@gmail.com');
+
+INSERT INTO routines (uuid, user_uuid, name, interval_in_days) VALUES
+('AA0973C4-FF55-4BC8-91E6-0C745B0315AE', '9EE9FFC5-D6D5-4467-AEC3-84F64CA5487D', 'Workout A', 7);
+
+INSERT INTO routine_exercises (uuid, routine_uuid, exercise_uuid, exercise_order, created_at) VALUES
+('77BC9086-EAC0-4C2D-A18C-D34E466FE671', 'aa0973c4-ff55-4bc8-91e6-0c745b0315ae', 'd39bc301-707a-4645-8d68-d97b410b25e2', 0, NOW());
