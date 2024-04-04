@@ -86,8 +86,8 @@ CREATE TABLE "users" (
   "uuid" uuid PRIMARY KEY,
   "username" varchar UNIQUE NOT NULL,
   "email" text UNIQUE NOT NULL,
-  "created_at" timestamp NOT NULL,
-  "updated_at" timestamp NOT NULL,
+  "created_at" timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  "updated_at" timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   "deleted_at" timestamp
 );
 
@@ -95,8 +95,8 @@ CREATE TABLE "routines" (
   "uuid" uuid PRIMARY KEY,
   "user_uuid" uuid NOT NULL,
   "interval_in_days" integer NOT NULL,
-  "created_at" timestamp NOT NULL,
-  "updated_at" timestamp NOT NULL,
+  "created_at" timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  "updated_at" timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   "deleted_at" timestamp
 );
 
@@ -105,7 +105,7 @@ CREATE TABLE "routine_exercises" (
   "routine_uuid" uuid NOT NULL,
   "exercise_uuid" uuid NOT NULL,
   "exercise_order" integer NOT NULL,
-  "created_at" timestamp NOT NULL,
+  "created_at" timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   "deleted_at" timestamp
 );
 
@@ -122,7 +122,7 @@ CREATE TABLE "exercises" (
   "category" Category NOT NULL,
   "image_path_0" text,
   "image_path_1" text,
-  "created_at" timestamp NOT NULL,
+  "created_at" timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   "deleted_at" timestamp
 );
 
@@ -130,8 +130,8 @@ CREATE TABLE "workouts" (
   "uuid" uuid PRIMARY KEY,
   "routine_uuid" uuid NOT NULL,
   "scheduled_at" timestamp NOT NULL,
-  "created_at" timestamp NOT NULL,
-  "updated_at" timestamp NOT NULL,
+  "created_at" timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  "updated_at" timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   "deleted_at" timestamp
 );
 
@@ -142,8 +142,8 @@ CREATE TABLE "workout_sets" (
   "set_order" integer NOT NULL,
   "reps" integer NOT NULL,
   "weight" numeric NOT NULL,
-  "created_at" timestamp NOT NULL,
-  "updated_at" timestamp NOT NULL,
+  "created_at" timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  "updated_at" timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   "deleted_at" timestamp
 );
 
