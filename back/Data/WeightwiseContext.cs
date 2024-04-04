@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace back.Models;
 
@@ -120,7 +118,7 @@ public partial class WeightwiseContext : DbContext
                 .HasForeignKey(d => d.RoutineUuid)
                 .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("routine_exercises_routine_uuid_fkey");
-            
+
             entity.HasOne(e => e.ExerciseUu).WithMany(p => p.RoutineExercises)
                 .HasForeignKey(d => d.ExerciseUuid)
                 .OnDelete(DeleteBehavior.Cascade)
