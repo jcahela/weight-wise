@@ -13,4 +13,5 @@ INSERT INTO routines (uuid, user_uuid, name, interval_in_days) VALUES
 ('AA0973C4-FF55-4BC8-91E6-0C745B0315AE', '9EE9FFC5-D6D5-4467-AEC3-84F64CA5487D', 'Workout A', 7);
 
 INSERT INTO routine_exercises (uuid, routine_uuid, exercise_uuid, exercise_order, created_at) VALUES
-('77BC9086-EAC0-4C2D-A18C-D34E466FE671', 'aa0973c4-ff55-4bc8-91e6-0c745b0315ae', 'd39bc301-707a-4645-8d68-d97b410b25e2', 0, NOW());
+('77BC9086-EAC0-4C2D-A18C-D34E466FE671', 'aa0973c4-ff55-4bc8-91e6-0c745b0315ae', 'd39bc301-707a-4645-8d68-d97b410b25e2', 0, NOW()),
+('75A0CBD8-8D42-43C3-8258-7C930074961D', 'aa0973c4-ff55-4bc8-91e6-0c745b0315ae', '087d3cb9-1f87-4c9d-a242-3cf23edf0097', 1, NOW());
