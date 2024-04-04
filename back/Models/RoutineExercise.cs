@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace back.Models;
 
@@ -7,17 +6,21 @@ public partial class RoutineExercise
 {
     public Guid Uuid { get; set; }
 
-    public Guid? RoutineUuid { get; set; }
+    [Required]
+    public Guid RoutineUuid { get; set; }
 
-    public Guid? ExerciseUuid { get; set; }
+    [Required]
+    public Guid ExerciseUuid { get; set; }
 
-    public int? ExerciseOrder { get; set; }
+    [Required]
+    public int ExerciseOrder { get; set; }
 
-    public DateTime? CreatedAt { get; set; }
+    [Required]
+    public DateTime CreatedAt { get; set; }
 
     public DateTime? DeletedAt { get; set; }
 
-    public virtual Exercise? ExerciseUu { get; set; }
+    public virtual Exercise ExerciseUu { get; set; } = null!;
 
-    public virtual Routine? RoutineUu { get; set; }
+    public virtual Routine RoutineUu { get; set; } = null!;
 }

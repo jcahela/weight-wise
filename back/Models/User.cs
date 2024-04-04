@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace back.Models;
 
@@ -7,13 +6,17 @@ public partial class User
 {
     public Guid Uuid { get; set; }
 
-    public string? Username { get; set; }
+    [Required]
+    public string Username { get; set; } = null!;
 
-    public string? Email { get; set; }
+    [Required]
+    public string Email { get; set; } = null!;
 
-    public DateTime? CreatedAt { get; set; }
+    [Required]
+    public DateTime CreatedAt { get; set; }
 
-    public DateTime? UpdatedAt { get; set; }
+    [Required]
+    public DateTime UpdatedAt { get; set; }
 
     public DateTime? DeletedAt { get; set; }
 
