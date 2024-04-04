@@ -78,6 +78,7 @@ public partial class WeightwiseContext : DbContext
             entity.Property(e => e.Uuid)
                 .ValueGeneratedNever()
                 .HasColumnName("uuid");
+            entity.Property(e => e.Name).HasColumnName("name");
             entity.Property(e => e.CreatedAt)
                 .HasColumnType("timestamp without time zone")
                 .HasColumnName("created_at");
@@ -117,6 +118,10 @@ public partial class WeightwiseContext : DbContext
             entity.HasOne(d => d.RoutineUu).WithMany(p => p.RoutineExercises)
                 .HasForeignKey(d => d.RoutineUuid)
                 .HasConstraintName("routine_exercises_routine_uuid_fkey");
+            
+            entity.HasOne(e => e.ExerciseUu).WithMany(p => p.RoutineExercises)
+                .HasForeignKey(d => d.ExerciseUuid)
+                .HasConstraintName("routine_exercises_exercise_uuid_fkey");
         });
 
         modelBuilder.Entity<User>(entity =>

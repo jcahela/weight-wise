@@ -9,6 +9,8 @@ public partial class Routine
 
     public Guid? UserUuid { get; set; }
 
+    public string? Name { get; set; }
+
     public int? IntervalInDays { get; set; }
 
     public DateTime? CreatedAt { get; set; }
