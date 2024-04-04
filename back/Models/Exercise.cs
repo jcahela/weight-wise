@@ -32,4 +32,8 @@ public partial class Exercise
     public DateTime? CreatedAt { get; set; }
 
     public DateTime? DeletedAt { get; set; }
+
+    public virtual ICollection<RoutineExercise> RoutineExercises { get; set; } = new List<RoutineExercise>();
+
+    public virtual ICollection<WorkoutSet> WorkoutSets { get; set; } = new List<WorkoutSet>();
 }
