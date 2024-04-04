@@ -200,8 +200,14 @@ public partial class WeightwiseContext : DbContext
             entity.Property(e => e.Weight).HasColumnName("weight");
             entity.Property(e => e.WorkoutUuid).HasColumnName("workout_uuid");
 
+            entity.HasOne(d => d.ExerciseUu).WithMany(p => p.WorkoutSets)
+                .HasForeignKey(d => d.ExerciseUuid)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("workout_sets_exercise_uuid_fkey");
+
             entity.HasOne(d => d.WorkoutUu).WithMany(p => p.WorkoutSets)
                 .HasForeignKey(d => d.WorkoutUuid)
+                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("workout_sets_workout_uuid_fkey");
         });
 
