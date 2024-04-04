@@ -93,6 +93,7 @@ public partial class WeightwiseContext : DbContext
 
             entity.HasOne(d => d.UserUu).WithMany(p => p.Routines)
                 .HasForeignKey(d => d.UserUuid)
+                .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("routines_user_uuid_fkey");
         });
 
@@ -117,10 +118,12 @@ public partial class WeightwiseContext : DbContext
 
             entity.HasOne(d => d.RoutineUu).WithMany(p => p.RoutineExercises)
                 .HasForeignKey(d => d.RoutineUuid)
+                .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("routine_exercises_routine_uuid_fkey");
             
             entity.HasOne(e => e.ExerciseUu).WithMany(p => p.RoutineExercises)
                 .HasForeignKey(d => d.ExerciseUuid)
+                .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("routine_exercises_exercise_uuid_fkey");
         });
 
@@ -173,6 +176,7 @@ public partial class WeightwiseContext : DbContext
 
             entity.HasOne(d => d.RoutineUu).WithMany(p => p.Workouts)
                 .HasForeignKey(d => d.RoutineUuid)
+                .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("workouts_routine_uuid_fkey");
         });
 
@@ -202,12 +206,12 @@ public partial class WeightwiseContext : DbContext
 
             entity.HasOne(d => d.ExerciseUu).WithMany(p => p.WorkoutSets)
                 .HasForeignKey(d => d.ExerciseUuid)
-                .OnDelete(DeleteBehavior.ClientSetNull)
+                .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("workout_sets_exercise_uuid_fkey");
 
             entity.HasOne(d => d.WorkoutUu).WithMany(p => p.WorkoutSets)
                 .HasForeignKey(d => d.WorkoutUuid)
-                .OnDelete(DeleteBehavior.ClientSetNull)
+                .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("workout_sets_workout_uuid_fkey");
         });
 
