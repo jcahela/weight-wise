@@ -148,14 +148,14 @@ CREATE TABLE "workout_sets" (
   "deleted_at" timestamp
 );
 
-ALTER TABLE "routines" ADD FOREIGN KEY ("user_uuid") REFERENCES "users" ("uuid");
+ALTER TABLE "routines" ADD FOREIGN KEY ("user_uuid") REFERENCES "users" ("uuid") ON DELETE CASCADE;
 
-ALTER TABLE "routine_exercises" ADD FOREIGN KEY ("routine_uuid") REFERENCES "routines" ("uuid");
+ALTER TABLE "routine_exercises" ADD FOREIGN KEY ("routine_uuid") REFERENCES "routines" ("uuid") ON DELETE CASCADE;
 
-ALTER TABLE "routine_exercises" ADD FOREIGN KEY ("exercise_uuid") REFERENCES "exercises" ("uuid");
+ALTER TABLE "routine_exercises" ADD FOREIGN KEY ("exercise_uuid") REFERENCES "exercises" ("uuid") ON DELETE CASCADE;
 
-ALTER TABLE "workouts" ADD FOREIGN KEY ("routine_uuid") REFERENCES "routines" ("uuid");
+ALTER TABLE "workouts" ADD FOREIGN KEY ("routine_uuid") REFERENCES "routines" ("uuid") ON DELETE CASCADE;
 
-ALTER TABLE "workout_sets" ADD FOREIGN KEY ("workout_uuid") REFERENCES "workouts" ("uuid");
+ALTER TABLE "workout_sets" ADD FOREIGN KEY ("workout_uuid") REFERENCES "workouts" ("uuid") ON DELETE CASCADE;
 
-ALTER TABLE "workout_sets" ADD FOREIGN KEY ("exercise_uuid") REFERENCES "exercises" ("uuid");
+ALTER TABLE "workout_sets" ADD FOREIGN KEY ("exercise_uuid") REFERENCES "exercises" ("uuid") ON DELETE CASCADE;
