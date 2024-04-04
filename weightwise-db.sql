@@ -84,28 +84,28 @@ CREATE TYPE Category AS ENUM (
 
 CREATE TABLE "users" (
   "uuid" uuid PRIMARY KEY,
-  "username" varchar,
-  "email" text,
-  "created_at" timestamp,
-  "updated_at" timestamp,
+  "username" varchar UNIQUE NOT NULL,
+  "email" text UNIQUE NOT NULL,
+  "created_at" timestamp NOT NULL,
+  "updated_at" timestamp NOT NULL,
   "deleted_at" timestamp
 );
 
 CREATE TABLE "routines" (
   "uuid" uuid PRIMARY KEY,
-  "user_uuid" uuid,
-  "interval_in_days" integer,
-  "created_at" timestamp,
-  "updated_at" timestamp,
+  "user_uuid" uuid NOT NULL,
+  "interval_in_days" integer NOT NULL,
+  "created_at" timestamp NOT NULL,
+  "updated_at" timestamp NOT NULL,
   "deleted_at" timestamp
 );
 
 CREATE TABLE "routine_exercises" (
   "uuid" uuid PRIMARY KEY,
-  "routine_uuid" uuid,
-  "exercise_uuid" uuid,
-  "exercise_order" integer,
-  "created_at" timestamp,
+  "routine_uuid" uuid NOT NULL,
+  "exercise_uuid" uuid NOT NULL,
+  "exercise_order" integer NOT NULL,
+  "created_at" timestamp NOT NULL,
   "deleted_at" timestamp
 );
 
@@ -128,22 +128,22 @@ CREATE TABLE "exercises" (
 
 CREATE TABLE "workouts" (
   "uuid" uuid PRIMARY KEY,
-  "routine_uuid" uuid,
-  "scheduled_at" timestamp,
-  "created_at" timestamp,
-  "updated_at" timestamp,
+  "routine_uuid" uuid NOT NULL,
+  "scheduled_at" timestamp NOT NULL,
+  "created_at" timestamp NOT NULL,
+  "updated_at" timestamp NOT NULL,
   "deleted_at" timestamp
 );
 
 CREATE TABLE "workout_sets" (
   "uuid" uuid PRIMARY KEY,
-  "workout_uuid" uuid,
-  "exercise_uuid" uuid,
-  "set_order" integer,
-  "reps" integer,
-  "weight" numeric,
-  "created_at" timestamp,
-  "updated_at" timestamp,
+  "workout_uuid" uuid NOT NULL,
+  "exercise_uuid" uuid NOT NULL,
+  "set_order" integer NOT NULL,
+  "reps" integer NOT NULL,
+  "weight" numeric NOT NULL,
+  "created_at" timestamp NOT NULL,
+  "updated_at" timestamp NOT NULL,
   "deleted_at" timestamp
 );
 
