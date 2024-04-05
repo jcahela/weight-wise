@@ -10,12 +10,13 @@ public class ExerciseService
     this._DBContext = dBContext;
   }
 
-  public IEnumerable<Exercise> GetAllExercises()
+  public IEnumerable<Dtos.ExerciseDto> GetAllExercises()
   {
     return (
       _DBContext.Exercises
-        .Select(e => e)
         .OrderBy(e => e.Name)
+        .Select(e => e.ToDto())
+        .ToList()
     );
   }
 
