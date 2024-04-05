@@ -6,13 +6,13 @@ namespace back.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class WeightwiseController : ControllerBase
+public class ExerciseController : ControllerBase
 {
     
 
     private readonly WeightwiseContext _DBContext;
 
-    public WeightwiseController(WeightwiseContext dBContext)
+    public ExerciseController(WeightwiseContext dBContext)
     {
         this._DBContext = dBContext;
     }
