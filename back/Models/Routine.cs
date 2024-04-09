@@ -23,9 +23,9 @@ public partial class Routine
 
     public DateTime? DeletedAt { get; set; }
 
-    public virtual ICollection<RoutineExercise> RoutineExercises { get; set; } = new List<RoutineExercise>();
+    public User User { get; set; } = null!;
+    
+    public ICollection<RoutineExercise> RoutineExercises { get; set; } = new List<RoutineExercise>();
 
-    public virtual User UserUu { get; set; } = null!;
-
-    public virtual ICollection<Workout> Workouts { get; set; } = new List<Workout>();
+    public ICollection<Workout> Workouts { get; set; } = new List<Workout>();
 }

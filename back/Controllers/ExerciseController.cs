@@ -17,10 +17,17 @@ public class ExerciseController : ControllerBase
         this._DBContext = dBContext;
     }
 
-    [HttpGet(Name = "getAllExercises")]
+    [HttpGet("Exercises", Name = "getAllExercises")]
     public IActionResult getAllExercises()
     {
         var exercises = new ExerciseService(_DBContext);
         return Ok(exercises.GetAllExercises());
+    }
+
+    [HttpGet("Users", Name = "getAllUsers")]
+    public IActionResult getAllUsers()
+    {
+        var users = new UserService(_DBContext);
+        return Ok(users.GetAllUsers());
     }
 }

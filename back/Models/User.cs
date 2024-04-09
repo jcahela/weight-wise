@@ -20,5 +20,5 @@ public partial class User
 
     public DateTime? DeletedAt { get; set; }
 
-    public virtual ICollection<Routine> Routines { get; set; } = new List<Routine>();
+    public ICollection<Routine> Routines { get; set; } = new List<Routine>();
 }
