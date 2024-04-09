@@ -7,7 +7,7 @@ public partial class Routine
     public Guid Uuid { get; set; }
 
     [Required]
-    public Guid UserUuid { get; set; }
+    public Guid UserId { get; set; }
 
     [Required]
     public string Name { get; set; } = null!;
@@ -25,7 +25,7 @@ public partial class Routine
 
     public User User { get; set; } = null!;
     
-    public ICollection<RoutineExercise> RoutineExercises { get; set; } = new List<RoutineExercise>();
+    public ICollection<Exercise> Exercises { get; set; } = new List<Exercise>();
 
     public ICollection<Workout> Workouts { get; set; } = new List<Workout>();
 }

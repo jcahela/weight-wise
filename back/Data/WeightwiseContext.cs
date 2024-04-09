@@ -87,7 +87,7 @@ public partial class WeightwiseContext : DbContext
             entity.Property(e => e.UpdatedAt)
                 .HasColumnType("timestamp without time zone")
                 .HasColumnName("updated_at");
-            entity.Property(e => e.UserUuid).HasColumnName("user_uuid");
+            entity.Property(e => e.UserId).HasColumnName("user_uuid");
         });
 
         modelBuilder.Entity<RoutineExercise>(entity =>
