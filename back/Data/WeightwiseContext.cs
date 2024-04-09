@@ -88,11 +88,6 @@ public partial class WeightwiseContext : DbContext
                 .HasColumnType("timestamp without time zone")
                 .HasColumnName("updated_at");
             entity.Property(e => e.UserUuid).HasColumnName("user_uuid");
-
-            entity.HasOne(d => d.UserUu).WithMany(p => p.Routines)
-                .HasForeignKey(d => d.UserUuid)
-                .OnDelete(DeleteBehavior.Cascade)
-                .HasConstraintName("routines_user_uuid_fkey");
         });
 
         modelBuilder.Entity<RoutineExercise>(entity =>
@@ -113,16 +108,6 @@ public partial class WeightwiseContext : DbContext
             entity.Property(e => e.ExerciseOrder).HasColumnName("exercise_order");
             entity.Property(e => e.ExerciseUuid).HasColumnName("exercise_uuid");
             entity.Property(e => e.RoutineUuid).HasColumnName("routine_uuid");
-
-            entity.HasOne(d => d.RoutineUu).WithMany(p => p.RoutineExercises)
-                .HasForeignKey(d => d.RoutineUuid)
-                .OnDelete(DeleteBehavior.Cascade)
-                .HasConstraintName("routine_exercises_routine_uuid_fkey");
-
-            entity.HasOne(e => e.ExerciseUu).WithMany(p => p.RoutineExercises)
-                .HasForeignKey(d => d.ExerciseUuid)
-                .OnDelete(DeleteBehavior.Cascade)
-                .HasConstraintName("routine_exercises_exercise_uuid_fkey");
         });
 
         modelBuilder.Entity<User>(entity =>
@@ -171,11 +156,6 @@ public partial class WeightwiseContext : DbContext
             entity.Property(e => e.UpdatedAt)
                 .HasColumnType("timestamp without time zone")
                 .HasColumnName("updated_at");
-
-            entity.HasOne(d => d.RoutineUu).WithMany(p => p.Workouts)
-                .HasForeignKey(d => d.RoutineUuid)
-                .OnDelete(DeleteBehavior.Cascade)
-                .HasConstraintName("workouts_routine_uuid_fkey");
         });
 
         modelBuilder.Entity<WorkoutSet>(entity =>
@@ -201,16 +181,6 @@ public partial class WeightwiseContext : DbContext
                 .HasColumnName("updated_at");
             entity.Property(e => e.Weight).HasColumnName("weight");
             entity.Property(e => e.WorkoutUuid).HasColumnName("workout_uuid");
-
-            entity.HasOne(d => d.ExerciseUu).WithMany(p => p.WorkoutSets)
-                .HasForeignKey(d => d.ExerciseUuid)
-                .OnDelete(DeleteBehavior.Cascade)
-                .HasConstraintName("workout_sets_exercise_uuid_fkey");
-
-            entity.HasOne(d => d.WorkoutUu).WithMany(p => p.WorkoutSets)
-                .HasForeignKey(d => d.WorkoutUuid)
-                .OnDelete(DeleteBehavior.Cascade)
-                .HasConstraintName("workout_sets_workout_uuid_fkey");
         });
 
         OnModelCreatingPartial(modelBuilder);
