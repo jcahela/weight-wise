@@ -8,5 +8,6 @@ public record RoutineDto(
   [Required] int IntervalInDays,
   [Required] DateTime CreatedAt,
   [Required] DateTime UpdatedAt,
+  [Required] ICollection<ExerciseDto> Exercises,
   DateTime? DeletedAt
 );

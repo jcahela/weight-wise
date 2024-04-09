@@ -88,6 +88,9 @@ public partial class WeightwiseContext : DbContext
                 .HasColumnType("timestamp without time zone")
                 .HasColumnName("updated_at");
             entity.Property(e => e.UserId).HasColumnName("user_uuid");
+            entity.HasMany(e => e.Exercises)
+                .WithMany(e => e.Routines)
+                .UsingEntity<RoutineExercise>();
         });
 
         modelBuilder.Entity<RoutineExercise>(entity =>
@@ -106,8 +109,8 @@ public partial class WeightwiseContext : DbContext
                 .HasColumnType("timestamp without time zone")
                 .HasColumnName("deleted_at");
             entity.Property(e => e.ExerciseOrder).HasColumnName("exercise_order");
-            entity.Property(e => e.ExerciseUuid).HasColumnName("exercise_uuid");
-            entity.Property(e => e.RoutineUuid).HasColumnName("routine_uuid");
+            entity.Property(e => e.ExerciseId).HasColumnName("exercise_uuid");
+            entity.Property(e => e.RoutineId).HasColumnName("routine_uuid");
         });
 
         modelBuilder.Entity<User>(entity =>

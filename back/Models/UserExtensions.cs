@@ -6,7 +6,9 @@ public static class UserExtensions
 {
   public static UserDto ToDto(this User user)
   {
-    var routineDtos = user.Routines.Select(r => r.ToDto()).ToList();
+    var routineDtos = user.Routines
+      .Select(r => r.ToDto())
+      .ToList();
 
     return new UserDto
     (

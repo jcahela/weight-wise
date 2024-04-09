@@ -51,7 +51,7 @@ public class Exercise
 
     public DateTime? DeletedAt { get; set; }
 
-    public virtual ICollection<RoutineExercise> RoutineExercises { get; set; } = new List<RoutineExercise>();
+    public virtual ICollection<Routine> Routines { get; set; } = new List<Routine>();
 
     public virtual ICollection<WorkoutSet> WorkoutSets { get; set; } = new List<WorkoutSet>();
 }

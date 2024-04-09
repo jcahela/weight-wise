@@ -7,10 +7,10 @@ public partial class RoutineExercise
     public Guid Uuid { get; set; }
 
     [Required]
-    public Guid RoutineUuid { get; set; }
+    public Guid RoutineId { get; set; }
 
     [Required]
-    public Guid ExerciseUuid { get; set; }
+    public Guid ExerciseId { get; set; }
 
     [Required]
     public int ExerciseOrder { get; set; }
@@ -20,7 +20,7 @@ public partial class RoutineExercise
 
     public DateTime? DeletedAt { get; set; }
 
-    public virtual Exercise ExerciseUu { get; set; } = null!;
+    public virtual Exercise Exercise { get; set; } = null!;
 
-    public virtual Routine RoutineUu { get; set; } = null!;
+    public virtual Routine Routine { get; set; } = null!;
 }
