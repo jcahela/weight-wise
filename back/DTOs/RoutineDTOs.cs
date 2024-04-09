@@ -3,11 +3,9 @@ using back.Models;
 
 namespace back.Dtos;
 
-public record UserDto(
-  Guid Uuid,
-  [Required] string Username,
-  [Required] string Email,
-  ICollection<RoutineDto> Routines,
+public record RoutineDto(
+  [Required] string Name,
+  [Required] int IntervalInDays,
   [Required] DateTime CreatedAt,
   [Required] DateTime UpdatedAt,
   DateTime? DeletedAt

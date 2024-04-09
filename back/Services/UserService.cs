@@ -16,6 +16,7 @@ public class UserService
   {
     return (
       _DBContext.Users
+        .Include(u => u.Routines)
         .Select(u => u.ToDto())
         .ToList()
     );
